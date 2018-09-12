@@ -1,10 +1,10 @@
 # updates
 
-sudo apt-get update
-sudo apt-get upgrade
+#sudo apt-get update
+#sudo apt-get upgrade
 
 # useful stuff
-sudo apt-get install net-tools
+#sudo apt-get install net-tools
 # sudo apt install git
 
 # make code directory and get code
@@ -24,7 +24,7 @@ else
 	git pull
 fi
 
-if [! -d "~/code/xolotl" ]; then
+if [ ! -d "~/code/xolotl" ]; then
 	# Control will enter here if $DIRECTORY exists.
 	git clone https://github.com/sg-s/xolotl
 else 
