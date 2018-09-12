@@ -10,14 +10,14 @@ sudo apt-get install net-tools
 # make code directory and get code
 if [ ! -d "~/code/" ]; then
 
-  mkdir '~/code/'
+  mkdir ~/code/
 fi
 cd ~/code
 
 if [ ! -d "~/code/srinivas.gs_mtools" ]; then
 	# Control will enter here if $DIRECTORY exists.
 	git clone https://github.com/sg-s/srinivas.gs_mtools
-else 
+else
 	cd ~/code/srinivas.gs_mtools
 	git stash
 	git checkout master
