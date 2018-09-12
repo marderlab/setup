@@ -1,11 +1,11 @@
 # updates
 
-#sudo apt-get update
-#sudo apt-get upgrade
+sudo apt-get update
+sudo apt-get upgrade
 
 # useful stuff
-#sudo apt-get install net-tools
-# sudo apt install git
+sudo apt-get install net-tools
+sudo apt install git
 
 # make code directory and get code
 if [ ! -d "$HOME/code/" ]
