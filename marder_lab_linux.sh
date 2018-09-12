@@ -10,7 +10,7 @@ sudo apt-get install net-tools
 # make code directory and get code
 if [! -d "~/code/" ]; then
 
-  mkdir('~/code/')
+  mkdir '~/code/'
 fi
 cd ~/code
 
