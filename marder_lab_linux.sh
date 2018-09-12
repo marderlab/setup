@@ -8,13 +8,13 @@ sudo apt-get install net-tools
 # sudo apt install git
 
 # make code directory and get code
-if [! -d "~/code/" ]; then
+if [ ! -d "~/code/" ]; then
 
   mkdir '~/code/'
 fi
 cd ~/code
 
-if [! -d "~/code/srinivas.gs_mtools" ]; then
+if [ ! -d "~/code/srinivas.gs_mtools" ]; then
 	# Control will enter here if $DIRECTORY exists.
 	git clone https://github.com/sg-s/srinivas.gs_mtools
 else 
@@ -35,7 +35,7 @@ else
 fi
 
 
-if [! -d "~/code/cpplab" ]; then
+if [ ! -d "~/code/cpplab" ]; then
 	# Control will enter here if $DIRECTORY exists.
 	git clone https://github.com/sg-s/cpplab
 else 
@@ -46,7 +46,7 @@ else
 fi
 
 
-if [! -d "~/code/crabsort" ]; then
+if [ ! -d "~/code/crabsort" ]; then
 
 	git clone https://github.com/sg-s/crabsort
 else 
@@ -56,7 +56,7 @@ else
 	git pull
 fi
 
-if [! -d "~/code/psychopomp" ]; then
+if [ ! -d "~/code/psychopomp" ]; then
 
 	git clone https://github.com/sg-s/psychopomp
 else 
@@ -66,7 +66,7 @@ else
 	git pull
 fi
 
-if [! -d "~/code/dotfiles" ]; then
+if [ ! -d "~/code/dotfiles" ]; then
 
 	git clone https://github.com/sg-s/dotfiles
 else 
@@ -77,7 +77,7 @@ else
 fi
 
 # install oh-my-git
-if [! -d "~/code/oh-my-git" ]; then
+if [ ! -d "~/code/oh-my-git" ]; then
 
 	git clone https://github.com/arialdomartini/oh-my-git
 else 
