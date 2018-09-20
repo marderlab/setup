@@ -1,0 +1,59 @@
+
+# the following git repos will be installed
+# and updated on this computer 
+repos=("https://github.com/arialdomartini/oh-my-git" "https://github.com/sg-s/srinivas.gs_mtools" "https://github.com/sg-s/xolotl" "https://github.com/sg-s/crabsort" "https://github.com/sg-s/cpplab" "https://github.com/sg-s/psychopomp" "https://github.com/sg-s/neuron-db" "https://github.com/sg-s/condalab")
+
+# make code directory and get code
+if [ ! -d "$HOME/code/" ]
+then
+	echo "making code directory..."
+  	mkdir ~/code/
+fi
+
+for repo in "${repos[@]}"
+do
+   repo_name=$(basename $repo)
+
+   if [ ! -d "$HOME/code/$repo_name" ]; then
+		echo -n "Installing " $repo_name 
+		cd $HOME/code/
+		git clone $repo -q
+	else 
+		echo -n "Updating" $repo_name
+		cd $HOME/code/$repo_name
+		git stash -q
+		git checkout master -q
+		git pull -q
+	fi 
+	echo " DONE"
+
+
+done
+
+exit
+
+# updates
+# if the rest of this script runs, this won't
+# do anything since automatic updates would have
+# been configured 
+sudo apt-get update
+sudo apt-get upgrade
+
+# useful stuff
+sudo apt-get install net-tools
+sudo apt install git
+
+# configure the shell to behave nicely 
+rm $HOME/.bash_profile
+rm $HOME/.bashrc
+
+mv $HOME/setup/marder_lab_bashrc.sh $HOME/.bashrc
+
+
+# configure automatic updates
+sudo apt install unattended-upgrades
+sudo cp $HOME/setup/50unattended-upgrades /etc/apt/apt.conf.d/
+sudo cp $HOME/setup/20auto-upgrades /etc/apt/apt.conf.d/
+
+# create a shortcut so we can just call setup
+sudo ln -s $HOME/setup/setup /usr/local/bin/setup
