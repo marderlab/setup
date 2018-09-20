@@ -30,8 +30,6 @@ do
 
 done
 
-exit
-
 # updates
 # if the rest of this script runs, this won't
 # do anything since automatic updates would have
