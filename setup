@@ -46,7 +46,7 @@ sudo apt install git
 rm $HOME/.bash_profile
 rm $HOME/.bashrc
 
-cp $HOME/setup/marder_lab_bashrc.sh $HOME/.bashrc
+cp $HOME/setup/marder_lab_bashrc.sh $HOME/.bash_profile
 
 
 # configure automatic updates
