@@ -1,12 +1,12 @@
 
 # make a better prompt, colours, etc. 
-if [ -z "echo $STY" ]
-then
-	PS1='\[\e[0;33m\]\u\[\e[0m\]@\[\e[0;32m\]\h\[\e[0m\]:\[\e[0;31m\]\w\[\e[0m\] ★ '
-else
+
+if [ $(echo $STY | wc -m) -gt 3 ]; then
 	echo "In screen!"
 	PS1='\[\e[0;33m\]\u\[\e[0m\]@\[\e[0;32m\]\h\[\e[0m\]:\[\e[0;31m\]\w\[\e[0m\] [screen]$ '
-fi 
+else
+	PS1='\[\e[0;33m\]\u\[\e[0m\]@\[\e[0;32m\]\h\[\e[0m\]:\[\e[0;31m\]\w\[\e[0m\] ★ '
+fi;
 
 
 # set default text editor to subl
