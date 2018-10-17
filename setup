@@ -44,6 +44,10 @@ sudo apt install git
 sudo apt install screen
 sudo apt install htop
 
+# compilers
+sudo apt install gcc -y
+sudo apt install g++ -y
+
 # configure the shell to behave nicely 
 rm $HOME/.bash_profile
 rm $HOME/.bashrc
