@@ -14,13 +14,6 @@ export VISUAL=subl
 # ##        ##     ##    ##    ##     ## ##    ## 
 # ##        ##     ##    ##    ##     ##  ######  
 
-# git auto-completion 
-if [ -f ~/code/dotfiles/git-completion.bash ]; then
-  . ~/code/dotfiles/git-completion.bash
-fi
-
-        
-
 # awesome git prompt, see: https://github.com/arialdomartini/oh-my-git
 source ~/code/oh-my-git/prompt.sh    
 

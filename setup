@@ -58,3 +58,19 @@ sudo cp $HOME/setup/20auto-upgrades /etc/apt/apt.conf.d/
 
 # create a shortcut so we can just call setup
 sudo ln -s $HOME/setup/setup /usr/local/bin/setup
+
+# figure out where matlab is, and make sure we use the 
+# correct version. MATLAB is commonly installed (incorrectly)
+# on the system path, which is a terrible thing to do
+# we want to use our local copy of MATLAB, which should be some
+# where in our home directory. Let's first find where it is
+echo "Setting up MATLAB paths..."
+MATLAB_HERE=$(find $HOME/ -name matlab | grep "bin/matlab")
+MATLAB_HERE=$(dirname $(echo $MATLAB_HERE))
+
+# now, prepend this to the PATH so that this is found first
+rm $HOME/.bash_profile2
+echo "PATH=$MATLAB_HERE:\$PATH" > $HOME/new_path.txt
+cat $HOME/new_path.txt $HOME/.bash_profile > $HOME/.bash_profile2
+rm $HOME/.bash_profile
+mv $HOME/.bash_profile2 $HOME/.bash_profile
