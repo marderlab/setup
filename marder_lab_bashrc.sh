@@ -1,6 +1,13 @@
 
 # make a better prompt, colours, etc. 
-PS1='\[\e[0;33m\]\u\[\e[0m\]@\[\e[0;32m\]\h\[\e[0m\]:\[\e[0;31m\]\w\[\e[0m\] ★ '
+if [ -z "echo $STY" ]
+then
+	PS1='\[\e[0;33m\]\u\[\e[0m\]@\[\e[0;32m\]\h\[\e[0m\]:\[\e[0;31m\]\w\[\e[0m\] ★ '
+else
+	echo "In screen!"
+	PS1='\[\e[0;33m\]\u\[\e[0m\]@\[\e[0;32m\]\h\[\e[0m\]:\[\e[0;31m\]\w\[\e[0m\] [screen]$ '
+fi 
+
 
 # set default text editor to subl
 export EDITOR=subl
