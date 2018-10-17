@@ -74,3 +74,7 @@ echo "PATH=$MATLAB_HERE:\$PATH" > $HOME/new_path.txt
 cat $HOME/new_path.txt $HOME/.bash_profile > $HOME/.bash_profile2
 rm $HOME/.bash_profile
 mv $HOME/.bash_profile2 $HOME/.bash_profile
+
+# copy screenrc 
+rm $HOME/.screenrc
+cp $HOME/setup/screenrc $HOME/.screenrc
