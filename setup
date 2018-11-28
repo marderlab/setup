@@ -71,12 +71,16 @@ sudo ln -s $HOME/setup/setup /usr/local/bin/setup
 echo "Setting up MATLAB paths..."
 MATLAB_HERE=$(find $HOME/ -name matlab | grep "bin/matlab")
 MATLAB_HERE=$(dirname $(echo $MATLAB_HERE))
+echo "MATLAB found in: "
+echo $MATLAB_HERE
+
 
 # now, prepend this to the PATH so that this is found first
 rm $HOME/.bash_profile2
 echo "PATH=$MATLAB_HERE:\$PATH" > $HOME/new_path.txt
 cat $HOME/new_path.txt $HOME/.bash_profile > $HOME/.bash_profile2
 rm $HOME/.bash_profile
+rm $HOME/new_path.txt
 mv $HOME/.bash_profile2 $HOME/.bash_profile
 
 # copy screenrc 
