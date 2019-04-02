@@ -61,7 +61,8 @@ sudo cp $HOME/setup/50unattended-upgrades /etc/apt/apt.conf.d/
 sudo cp $HOME/setup/20auto-upgrades /etc/apt/apt.conf.d/
 
 # create a shortcut so we can just call setup
-sudo ln -s $HOME/setup/setup /usr/local/bin/setup
+sudo cp $HOME/setup/setup /usr/local/bin/setup
+sudo chmod a+x /usr/local/bin/setup
 
 # figure out where matlab is, and make sure we use the 
 # correct version. MATLAB is commonly installed (incorrectly)
