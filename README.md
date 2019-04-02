@@ -15,8 +15,7 @@ and then paste this into a prompt:
 cd ~
 git clone https://github.com/marderlab/setup
 cd setup
-chmod a+x setup
-./setup
+bash setup
 
 ```
 
