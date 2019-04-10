@@ -43,6 +43,7 @@ sudo apt-get install net-tools
 sudo apt install git
 sudo apt install screen
 sudo apt install htop
+sudo apt-get install cifs-utils
 
 # compilers
 sudo apt install gcc -y
