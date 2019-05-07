@@ -30,6 +30,10 @@ do
 
 done
 
+# need to add repos to get latest compilers
+sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+sudo apt-get update
+
 # updates
 # if the rest of this script runs, this won't
 # do anything since automatic updates would have
