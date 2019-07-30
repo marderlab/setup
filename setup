@@ -1,7 +1,7 @@
 #!/bin/bash
 # the following git repos will be installed
 # and updated on this computer 
-repos=("https://github.com/arialdomartini/oh-my-git" "https://github.com/sg-s/srinivas.gs_mtools" "https://github.com/sg-s/xolotl" "https://github.com/sg-s/crabsort" "https://github.com/sg-s/cpplab" "https://github.com/sg-s/xgrid" "https://github.com/sg-s/neuron-db" "https://github.com/sg-s/condalab" "https://github.com/sg-s/data" "https://github.com/sg-s/xfit")
+repos=("https://github.com/arialdomartini/oh-my-git" "https://github.com/sg-s/srinivas.gs_mtools" "https://github.com/sg-s/xolotl" "https://github.com/sg-s/crabsort" "https://github.com/sg-s/cpplab" "https://github.com/sg-s/neuron-db" "https://github.com/sg-s/condalab" "https://github.com/sg-s/data")
 
 # make code directory and get code
 if [ ! -d "$HOME/code/" ]
