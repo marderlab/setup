@@ -1,4 +1,8 @@
 
+# open connection to ssh-add
+eval $(ssh-agent)
+
+
 # make a better prompt, colours, etc. 
 
 if [ $(echo $STY | wc -m) -gt 3 ]; then
