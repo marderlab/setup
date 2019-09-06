@@ -1,6 +1,6 @@
 #!/bin/bash
 # install and update git repos in ~/code
-source $HOME/setup/updatecode
+source "$HOME"/setup/updatecode
 
 # ensure that apt is installed before continuing
 [[ -x "/usr/bin/apt" ]] || { echo "ERROR: Unsupported operating system! Supported operating systems: Debian, Ubuntu" && exit 1 ; }
