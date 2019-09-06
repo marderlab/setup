@@ -1,53 +1,28 @@
 #!/bin/bash
-# the following git repos will be installed
-# and updated on this computer 
-repos=("https://github.com/arialdomartini/oh-my-git" "https://github.com/sg-s/srinivas.gs_mtools" "https://github.com/sg-s/xolotl" "https://github.com/sg-s/crabsort" "https://github.com/sg-s/cpplab" "https://github.com/sg-s/neuron-db" "https://github.com/sg-s/condalab" "https://github.com/sg-s/data")
+# install and update git repos in ~/code
+source $HOME/setup/updatecode
 
-# make code directory and get code
-if [ ! -d "$HOME/code/" ]
-then
-	echo "making code directory..."
-  	mkdir ~/code/
-fi
-
-for repo in "${repos[@]}"
-do
-   repo_name=$(basename "$repo")
-
-   if [ ! -d "$HOME/code/$repo_name" ]; then
-		echo -n "Installing " "$repo_name" 
-		cd "$HOME"/code/ || exit
-		git clone "$repo" -q
-	else 
-		echo -n "Updating" "$repo_name"
-		cd "$HOME"/code/"$repo_name" || exit
-		git stash -q
-		git checkout master -q
-		git pull -q
-	fi 
-	echo " DONE"
-
-
-done
+# apt must be installed
+[[ -x "/usr/bin/apt" ]] || ( echo "ERROR: Unsupported operating system" && exit 1 )
 
 # need to add repos to get latest compilers
 sudo add-apt-repository ppa:ubuntu-toolchain-r/test
-sudo apt-get update
+sudo apt update
 
 # updates
 # if the rest of this script runs, this won't
 # do anything since automatic updates would have
 # been configured 
-sudo apt-get update
-sudo apt-get upgrade -y
+sudo apt update
+sudo apt upgrade -y
 sudo apt autoremove -y
 
 # useful stuff
-sudo apt-get install net-tools
+sudo apt install net-tools
 sudo apt install git
 sudo apt install screen
 sudo apt install htop
-sudo apt-get install cifs-utils
+sudo apt install cifs-utils
 
 # compilers
 sudo apt install gcc -y
@@ -59,7 +34,6 @@ rm "$HOME"/.bashrc
 
 cp "$HOME"/setup/marder_lab_bashrc.sh "$HOME"/.bash_profile
 
-
 # configure automatic updates
 sudo apt install unattended-upgrades
 sudo cp "$HOME"/setup/50unattended-upgrades /etc/apt/apt.conf.d/
@@ -68,18 +42,6 @@ sudo cp "$HOME"/setup/20auto-upgrades /etc/apt/apt.conf.d/
 # create a shortcut so we can just call setup
 sudo cp "$HOME"/setup/setup /usr/local/bin/setup
 sudo chmod a+x /usr/local/bin/setup
-
-# figure out where matlab is, and make sure we use the 
-# correct version. MATLAB is commonly installed (incorrectly)
-# on the system path, which is a terrible thing to do
-# we want to use our local copy of MATLAB, which should be some
-# where in our home directory. Let's first find where it is
-echo "Setting up MATLAB paths..."
-MATLAB_HERE=$(find "$HOME"/ -name matlab | grep "bin/matlab")
-MATLAB_HERE=$(dirname "$MATLAB_HERE")
-echo "MATLAB found in: "
-echo "$MATLAB_HERE"
-
 
 # now, prepend this to the PATH so that this is found first
 rm "$HOME"/.bash_profile2
@@ -92,3 +54,14 @@ mv "$HOME"/.bash_profile2 "$HOME"/.bash_profile
 # copy screenrc 
 rm "$HOME"/.screenrc
 cp "$HOME"/setup/screenrc "$HOME"/.screenrc
+
+# figure out where matlab is, and make sure we use the 
+# correct version. MATLAB is commonly installed (incorrectly)
+# on the system path, which is a terrible thing to do
+# we want to use our local copy of MATLAB, which should be some
+# where in our home directory. Let's first find where it is
+echo "Setting up MATLAB paths..."
+MATLAB_HERE=$(find "$HOME"/ -name matlab | grep "bin/matlab")
+MATLAB_HERE=$(dirname "$MATLAB_HERE")
+echo "MATLAB found in: "
+echo "$MATLAB_HERE"

@@ -1,0 +1,30 @@
+#!/bin/bash
+# the following git repos will be installed
+# and updated on this computer 
+repos=("https://github.com/arialdomartini/oh-my-git" "https://github.com/sg-s/srinivas.gs_mtools" "https://github.com/sg-s/xolotl" "https://github.com/sg-s/crabsort" "https://github.com/sg-s/cpplab" "https://github.com/sg-s/neuron-db" "https://github.com/sg-s/condalab" "https://github.com/sg-s/data")
+
+# make code directory and get code
+if [ ! -d "$HOME/code/" ]
+then
+	echo "making code directory..."
+  	mkdir $HOME/code/
+fi
+
+for repo in "${repos[@]}"
+do
+   repo_name=$(basename "$repo")
+
+   if [ ! -d "$HOME/code/$repo_name" ]; then
+		echo -n "Installing " "$repo_name" 
+		cd "$HOME"/code/ || exit
+		git clone "$repo" -q
+	else 
+		echo -n "Updating" "$repo_name"
+		cd "$HOME"/code/"$repo_name" || exit
+		git stash -q
+		git checkout master -q
+		git pull -q
+	fi 
+	echo " DONE"
+
+done
