@@ -7,7 +7,7 @@ repos=("https://github.com/arialdomartini/oh-my-git" "https://github.com/sg-s/sr
 if [ ! -d "$HOME/code/" ]
 then
 	echo "making code directory..."
-  	mkdir $HOME/code/
+  	mkdir "$HOME"/code/
 fi
 
 for repo in "${repos[@]}"
